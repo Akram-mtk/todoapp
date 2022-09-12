@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');/* font-family: 'Asap', sans-serif; */
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Asap', sans-serif;
+    background: #4D4C7D;
+    margin: 0px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%;
+
+}
+
+input{
+    width: 40%;
+    height: 1.1rem;
+    margin: 10px;
+    font-size: large;
+    padding: 10px;
+}
+
+a{
+    text-align: center;
+    display: block;
+    color: #F0EABE;
+    margin-top: 20px;
+}
+

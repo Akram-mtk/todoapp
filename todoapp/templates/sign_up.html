@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'sign_up.css' %}">
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% if already_exist %}
+        <div style="font-size: larger;">this user name is already used</div>
+        {% endif %}
+        
+        <input type="text" placeholder="user name" name="user_name" id="_1">
+        <input type="password" placeholder="password" name="password" id="_2" onkeyup="check()">
+        <input type="password" placeholder="rewrit your password" name="checkpassword" id="_3" onkeyup="check()">
+        <input type="submit" value="creat account" id="_4" style="height: auto;" disabled>
+        <div style="color: #FF4040;font-size:larger" id="_5"></div>
+    </form>
+    <a href="{% url 'login' %}">do you have an acount ?</a>
+
+    <script>
+        function check() {
+            let psw1 = document.getElementById("_2").value;
+            let psw2 = document.getElementById("_3").value;
+            if (psw1 != psw2) {
+                document.getElementById("_5").innerHTML = "these passwords didn't match";
+                document.getElementById("_4").setAttribute('disabled', "")
+            }
+            else {
+                document.getElementById("_5").innerHTML = "";
+                document.getElementById("_4").removeAttribute('disabled')
+            }
+        }
+    </script>
+
+</body>
+</html>

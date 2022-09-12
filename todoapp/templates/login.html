@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ssign_up.css' %}">
+</head>
+<body>
+    <form action="{% url 'main' %}" method="post">
+        {% csrf_token %}
+        {% if wrong_password %}
+        <div style="font-size: larger;">wrong password</div>
+        {% elif wrong_user_name %}
+        <div style="font-size: larger;">wrong user name</div>
+        {% endif %}
+        <input type="text" placeholder="user name" name="user_name" id="_1">
+        <input type="text" placeholder="password" name="password" id="_2">
+        <input type="submit" value="login" id="_4" style="height: auto;">
+    </form>
+    <a href="{% url 'sign' %}">you dont have an acount ?</a>
+</body>
+</html>

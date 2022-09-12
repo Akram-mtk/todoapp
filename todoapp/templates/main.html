@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'sstyle.css' %}">
+</head>
+<body>
+    <nav>
+        <form action="" method="get" class="add_task_form">
+            <input type="text" name="input_task" placeholder="isert task" class="add_task_input">
+            <input type="submit" value="ADD" class="submit">
+        </form>
+        {% if user_name %}
+        <a href="{% url 'main' %}"><svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="M7.792 35q-1.125 0-1.959-.833Q5 33.333 5 32.208V7.792q0-1.125.833-1.959Q6.667 5 7.792 5H19.75v2.792H7.792v24.416H19.75V35Zm19.583-7.375-1.958-2 4.25-4.25h-14.25v-2.75h14.208l-4.25-4.25 1.958-2L35 20.042Z"/></svg></a>
+        {% else %}
+        <div class="account"><a href="{% url 'login' %}">login</a> / <a href="{% url 'sign' %}">sign up</a></div>
+        {% endif %}
+
+    </nav>
+    <section class="tasks">
+        {% if login %}
+            {% for task in tasks %}
+            <div class="task">{{task.task_content}}
+                <a href="{% url 'rmv' task.id %}"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="delete_icon"><path d="M7 21q-.825 0-1.412-.587Q5 19.825 5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413Q17.825 21 17 21ZM17 6H7v13h10ZM9 17h2V8H9Zm4 0h2V8h-2ZM7 6v13Z"/></svg></a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="task">Delete meee
+                <a href="{% url 'sign' %}"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="delete_icon"><path d="M7 21q-.825 0-1.412-.587Q5 19.825 5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413Q17.825 21 17 21ZM17 6H7v13h10ZM9 17h2V8H9Zm4 0h2V8h-2ZM7 6v13Z"/></svg></a>
+            </div>
+        {% endif %}
+    </section>
+</body>
+</html>

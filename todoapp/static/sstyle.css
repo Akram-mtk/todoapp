@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');/* font-family: 'Asap', sans-serif; */
+
+
+*{
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Asap', sans-serif;
+    background: #4D4C7D;
+}
+
+a{
+    text-decoration: none;
+    color: #F0EABE;
+}
+
+.account{
+    color: #F0EABE;
+}
+
+
+nav{
+    width: 100vw;
+    padding: 20px 0px;
+    position: sticky;
+    top: 0;
+    background: #363062;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.add_task_form{
+    grid-column-start: 2;
+    width: 100%;
+    text-align: center;
+}
+
+input{
+    height: 30px;
+}
+
+
+.add_task_input{
+    width: 50%;
+    background: #F0EABE;
+    border: none;
+    border-radius: 5px;
+    transition: 600ms;
+    font-size: large;
+    padding-left: 10px;
+
+}
+
+.add_task_input::placeholder{
+    color: #938D90;
+    font-size: large;
+}
+
+.add_task_input:focus{
+    outline: none;
+    width: 80%;
+}
+
+.submit{
+    background: #827397;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.submit:hover{
+    cursor: pointer;
+}
+
+
+
+
+.tasks{
+    text-align: center;
+
+}
+
+.task{
+    background: #9B91A4;
+    width: 70%;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 20px auto 10px;
+    text-align: left;
+    font-size: larger;
+}
+
+.delete_icon{
+    float: right;
+    fill: #FA3633;
+}
